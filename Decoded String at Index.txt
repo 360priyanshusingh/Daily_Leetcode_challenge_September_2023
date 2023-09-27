@@ -1,0 +1,27 @@
+class Solution {
+    public String decodeAtIndex(String s, int k) {
+        long  n=0;
+
+        for(int i=0;i<s.length();i++){
+            if(Character.isDigit(s.charAt(i))){
+               n*=s.charAt(i)-'0';
+            }
+           else n++;
+            
+        }
+
+        for(int j=s.length()-1;j>=0;j--){
+            k%=n;
+             if(k==0 && !Character.isDigit(s.charAt(j))){
+              return String.valueOf(s.charAt(j));
+             }
+            else if(Character.isDigit(s.charAt(j))){
+               n/=s.charAt(j)-'0';
+            }
+            else n--;
+            
+        }
+
+        return String.valueOf(s.charAt(k-1));
+    }
+}
