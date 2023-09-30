@@ -1,0 +1,31 @@
+ //is 1 then all the cells in its ith row and jth column will become 1.
+    void booleanMatrix(int matrix[][])
+    {
+        // code here 
+        Map<Integer,Integer> rmp=new HashMap<>();
+        Map<Integer,Integer> cmp=new HashMap<>();
+        
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                if(matrix[i][j]==1){
+                    rmp.put(i,rmp.getOrDefault(i,0)+1);
+                    cmp.put(j,cmp.getOrDefault(j,0)+1);
+                }
+            }
+        }
+        
+        for(Integer h:rmp.keySet()){
+            for(int i=0;i<matrix[0].length;i++){
+                matrix[h][i]=1;
+            }
+        }
+        
+         for(Integer h:cmp.keySet()){
+            for(int i=0;i<matrix.length;i++){
+                matrix[i][h]=1;
+            }
+        }
+        
+        
+        
+    }
