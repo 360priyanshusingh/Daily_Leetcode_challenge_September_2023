@@ -1,0 +1,15 @@
+class Solution {
+    public boolean isMonotonic(int[] nums) {
+       int i=1;
+       int n=nums.length;
+
+       while(i<n && nums[i-1]<=nums[i]) i++;
+
+       if(i==n) return true;
+        i=1;
+       while(i<n && nums[i-1]>=nums[i]) i++;
+        if(i==n) return true;
+
+        return false;
+    }
+}
