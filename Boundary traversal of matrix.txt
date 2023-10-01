@@ -1,0 +1,22 @@
+ static ArrayList<Integer> boundaryTraversal(int matrix[][], int n, int m)
+    {
+        // code here 
+        ArrayList<Integer> ans = new ArrayList<>();
+        if(m==1){
+             for(int i=0;i<n;i++) ans.add(matrix[i][0]);
+             return ans;
+        }
+        if(n==1){
+            for(int i=0;i<m;i++) ans.add(matrix[0][i]);
+             return ans;
+        }
+        
+        for(int i=0;i<m;i++) ans.add(matrix[0][i]);
+        for(int j=1;j<n;j++) ans.add(matrix[j][m-1]);
+        
+        for(int i=m-2;i>=0;i--) ans.add(matrix[n-1][i]);
+        for(int j=n-2;j>=1;j--) ans.add(matrix[j][0]);
+            
+        
+        return ans;
+    }
